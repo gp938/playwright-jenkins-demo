@@ -1,4 +1,3 @@
-```groovy
 pipeline {
     agent any
 
@@ -54,45 +53,3 @@ pipeline {
         }
     }
 }
-```
-
-### Add it to your Git repo
-
-From your Playwright project directory:
-
-```bash
-touch Jenkinsfile
-```
-
-Paste the above content into `Jenkinsfile`, then:
-
-```bash
-git add Jenkinsfile
-git commit -m "Add Jenkins pipeline"
-git push origin main
-```
-
-Your repository should look roughly like:
-
-```text
-playwright-project/
-├── tests/
-├── playwright.config.ts
-├── package.json
-├── package-lock.json
-└── Jenkinsfile
-```
-
-### Jenkins setup
-
-Create a **Pipeline** job in Jenkins → **Pipeline** → set **Definition** to **Pipeline script from SCM**, then select Git and provide your repository URL and credentials.
-
-Set:
-
-```text
-Script Path: Jenkinsfile
-```
-
-Then click **Build Now**.
-
-**Important:** the Jenkins agent needs Node.js/npm and enough permissions to run `npx playwright install --with-deps`. If you're using a Docker-based Jenkins agent, I can give you a **Playwright + Docker Jenkinsfile** that is usually easier and more reliable.
