@@ -36,13 +36,10 @@ pipeline {
     post {
         always {
             
-        publishHTML([
-            reportDir: 'playwright-report',
-            reportFiles: 'index.html',
-            reportName: 'Playwright HTML Report',
-            keepAll: true,
-            alwaysLinkToLastBuild: true,
-            allowMissing: false
+        allure([
+            includeProperties:false,
+            jdk:'',
+            results:[[path:'allure-results']]
               
             ])
         }

@@ -9,4 +9,6 @@ test('Google has title', async ({ page }) => {
   console.log('TITLE:', await page.title());
 
   await expect(page).toHaveTitle(/Playwright/, { timeout: 50000 });
+  await page.pause();
+  
 });
