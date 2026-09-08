@@ -43,7 +43,7 @@ pipeline {
             echo 'Playwright tests failed!'
         }
     }
-}
+
 post {
     always {
         publishHTML([
@@ -56,6 +56,6 @@ post {
         ])
     }
 }
-
+}
 
 
