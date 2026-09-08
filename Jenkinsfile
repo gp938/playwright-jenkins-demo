@@ -31,17 +31,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
             
-        }
-
-        success {
-            echo 'Playwright tests passed successfully!'
-        }
-
-        failure {
-            echo 'Playwright tests failed!'
-        }
         publishHTML([
             allowMissing: true,
             alwaysLinkToLastBuild: true,
@@ -49,9 +39,9 @@ pipeline {
             reportDir: 'playwright-report',
             reportFiles: 'index.html',
             reportName: 'Playwright Report'
-        ])
+            ])
+        }
     }
 }
-
 
 
