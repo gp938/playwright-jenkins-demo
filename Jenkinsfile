@@ -27,6 +27,11 @@ pipeline {
                 bat 'npx playwright test'
             }
         }
+        stage('Check report') {
+            steps {
+                bat 'dir playwright-report'
+            }
+        }
     }
 
     post {
