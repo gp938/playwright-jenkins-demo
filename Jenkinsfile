@@ -42,10 +42,6 @@ pipeline {
         failure {
             echo 'Playwright tests failed!'
         }
-    }
-
-post {
-    always {
         publishHTML([
             allowMissing: true,
             alwaysLinkToLastBuild: true,
@@ -56,6 +52,6 @@ post {
         ])
     }
 }
-}
+
 
 
