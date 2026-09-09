@@ -35,7 +35,6 @@ pipeline {
     }
     post {
         always {
-            
         allure([
             includeProperties:false,
             jdk:'',
