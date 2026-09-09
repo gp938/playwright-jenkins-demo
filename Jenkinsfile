@@ -35,14 +35,9 @@ pipeline {
     }
     post {
         always {
-        allure([
-            includeProperties:false,
-            jdk:'',
-            results:[[path:'allure-results']]
-              
-            ])
+        bat 'allure generate allure-results -o allure-report --clean'
         }
     }
 }
-
+ 
 
