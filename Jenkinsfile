@@ -32,12 +32,14 @@ pipeline {
                 bat 'dir playwright-report'
             }
         }
-    }
-    post {
-        always {
-        bat 'allure generate allure-results -o allure-report --clean'
+        stage('allure-report'){
+            steps{
+                bat 'allure generate allure-results -o allure-report --clean'
         }
-    }
+            }
+        }
 }
+    
+
  
 
