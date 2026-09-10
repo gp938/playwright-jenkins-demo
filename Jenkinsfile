@@ -27,9 +27,9 @@ pipeline {
                 bat 'npx playwright test'
             }
         }
-        stage('Check report') {
+        stage('Run allure') {
             steps {
-                bat 'dir playwright-report'
+                bat 'npm install -g allure-commandline '
             }
         }
         stage('allure-report'){
