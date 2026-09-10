@@ -1,2 +1,5 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","72081","Google has title","chromium","2026-09-09","passed","2026-09-09","","example.spec.js","",""
+"","112244","has title","chromium","2026-09-10","failed","2026-09-10","","login.spec.js","",""
+"","50615","get started link","chromium","2026-09-10","passed","2026-09-10","","login.spec.js","",""
+"","125724","Google has title","chromium","2026-09-10","broken","2026-09-10","","example.spec.js","",""
+"","101859","login test","chromium","2026-09-10","passed","2026-09-10","","login.spec.js","",""
