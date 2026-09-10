@@ -27,7 +27,16 @@ pipeline {
                 bat 'npx playwright test'
             }
         }
-        stage('Run allure') {
+        stage('Allure Report') {
+            steps {
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    results: [[path: 'allure-results']]
+                ])
+            }
+        }
+       /* stage('Run allure') {
             steps {
                 bat 'npm install -g allure-commandline '
             }
@@ -36,7 +45,7 @@ pipeline {
             steps{
                 bat 'allure generate allure-results -o allure-report --clean'
         }
-            }
+            }*/
         }
 }
     
