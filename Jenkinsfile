@@ -56,7 +56,7 @@ pipeline {
             }*/
         }
 }
-    post {
+    /* post {
     always {
         // Keep reports even when tests fail
         archiveArtifacts(
@@ -81,6 +81,6 @@ pipeline {
         echo 'Cleaning up...'
     }
 }
-
+ */
  
 
