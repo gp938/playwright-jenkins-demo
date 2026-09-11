@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                Checkout scm
+                checkout scm
                 //git branch:'main',
                 //url:'https://github.com/gp938/playwright-jenkins-demo.git'
             }
