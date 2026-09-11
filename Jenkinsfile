@@ -23,15 +23,15 @@ pipeline {
             }
         }
 
-        stage('Run Playwright Tests') {
-            steps {
-              //  bat 'npx playwright test'
-            }
-        }
-        stage('Run Playwright Tests new') {
-    steps {
-        catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
-            bat 'npx playwright test'
+        // stage('Run Playwright Tests') {
+        //     steps {
+        //       //  bat 'npx playwright test'
+        //     }
+        // }
+          stage('Run Playwright Tests new') {
+             steps {
+             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+             bat 'npx playwright test'
         }
     }
 }
