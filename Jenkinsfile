@@ -56,7 +56,31 @@ pipeline {
             }*/
         }
 }
-    
+    post {
+    always {
+        // Keep reports even when tests fail
+        archiveArtifacts(
+            artifacts: 'playwright-report/**',
+            allowEmptyArchive: true
+        )
+
+        archiveArtifacts(
+            artifacts: 'allure-results/**',
+            allowEmptyArchive: true
+        )
+    }
+
+    success {
+        echo 'All Playwright tests passed'
+    }
+
+    failure {
+        echo 'Some Playwright tests failed'
+    }
+    cleanup {
+        echo 'Cleaning up...'
+    }
+}
 
  
 
