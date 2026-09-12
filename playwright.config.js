@@ -39,6 +39,9 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: 'https://www.google.com',
     headless:false,
+    screenshot: 'only-on-failure',
+    video:'retain-on-failure',
+    
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -50,12 +53,12 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'],headless: false },
     },
 
-    /*{
+    {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
 
-    {
+   /* {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },*/
