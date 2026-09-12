@@ -13,11 +13,14 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+  outputDir: process.env.WORKSPACE
+    ? `${process.env.WORKSPACE}/playwright-results`
+    : 'playwright-results',
   /*reporter:[
     ['list'],
     ['allure-playwright']
   ],*/
-  timeout: 120000,
+  //timeout: 120000,
   workers: 2,
   testDir: './tests',
   /* Run tests in files in parallel */
