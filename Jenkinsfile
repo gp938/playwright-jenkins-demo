@@ -44,42 +44,15 @@ pipeline {
                 ])
             }
         }
-       /* stage('Run allure') {
+        stage('screenshot-report') {
             steps {
-                bat 'npm install -g allure-commandline '
-            }
+                 archiveArtifacts artifacts: 'test-results/**/*, playwright-report/**/*',
+                 allowEmptyArchive: true
+                  }
         }
-        stage('allure-report'){
-            steps{
-                bat 'allure generate allure-results -o allure-report --clean'
-        }
-            }*/
-        }
-        stage('screenshot-report'){
-            steps{
-     
-            archiveArtifacts artifacts: 'test-results/**/*',
-            allowEmptyArchive: true
-            }
+          
      }
 }
-    /*    archiveArtifacts(
-            artifacts: 'allure-results/**',
-            allowEmptyArchive: true
-        )
-    }
-
-    success {
-        echo 'All Playwright tests passed'
-    }
-
-    failure {
-        echo 'Some Playwright tests failed'
-    }
-    cleanup {
-        echo 'Cleaning up...'
-    }
-}
- */
+   
  
 
