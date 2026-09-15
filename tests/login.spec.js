@@ -1,5 +1,14 @@
 //const {test,expect} = require('@playwright/test');
 import { test, expect } from '@playwright/test';
+test('Take screenshot',async({page}) =>{
+  await
+  page.goto("https://www.google.com");
+  await page.screenshot({
+    path:'screenshots/google.com',
+    fullpage:true
+
+  });
+});
 test('login test',async ({page}) =>{
 await 
 page.goto('https://example.com');
