@@ -65,7 +65,7 @@ pipeline {
             echo === Files ===
             dir /s /b
         '''
-            archiveArtifacts artifacts: 'screenshots/**/*.png',
+            archiveArtifacts artifacts: 'test-results/**/*.png',
             allowEmptyArchive: true
             }
      }
