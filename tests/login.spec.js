@@ -5,7 +5,7 @@ test('Take screenshot',async({page}) =>{
   page.goto("https://www.google.com");
   await expect(page).toHaveTitle(/Example/);
   await page.screenshot({
-    path:'screenshots/google.com',
+    path:'screenshots/google.png',
     fullpage:true
 
   });

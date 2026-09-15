@@ -7,7 +7,7 @@
 # Test info
 
 - Name: login.spec.js >> has title
-- Location: tests\login.spec.js:12:1
+- Location: tests\login.spec.js:11:5
 
 # Error details
 
@@ -20,6 +20,8 @@ Timeout: 5000ms
 
 Call log:
   - Expect "toHaveTitle" with timeout 5000ms
+    3 × locator resolved to <html itemscope="" lang="en-IN" itemtype="http://schema.org/WebPage">…</html>
+      - unexpected value "Google"
 
 ```
 
@@ -48,23 +50,23 @@ Call log:
   - button "I'm Feeling Lucky"
 - text: "Google offered in:"
 - link "हिन्दी":
-  - /url: https://www.google.com/setprefs?sig=0_NxysGFBlHmvc8uU9V74ySIyDkC0%3D&hl=hi&source=homepage&sa=X&ved=0ahUKEwiay-zkvOOWAxXSUGcHHX-wBKUQ2ZgBCCg
+  - /url: https://www.google.com/setprefs?sig=0_0i0dY810LdhiISmemJkItgG2uYI%3D&hl=hi&source=homepage&sa=X&ved=0ahUKEwj-8s2vv-iWAxWWjuEIHaeNK7MQ2ZgBCCg
 - link "বাংলা":
-  - /url: https://www.google.com/setprefs?sig=0_NxysGFBlHmvc8uU9V74ySIyDkC0%3D&hl=bn&source=homepage&sa=X&ved=0ahUKEwiay-zkvOOWAxXSUGcHHX-wBKUQ2ZgBCCk
+  - /url: https://www.google.com/setprefs?sig=0_0i0dY810LdhiISmemJkItgG2uYI%3D&hl=bn&source=homepage&sa=X&ved=0ahUKEwj-8s2vv-iWAxWWjuEIHaeNK7MQ2ZgBCCk
 - link "తెలుగు":
-  - /url: https://www.google.com/setprefs?sig=0_NxysGFBlHmvc8uU9V74ySIyDkC0%3D&hl=te&source=homepage&sa=X&ved=0ahUKEwiay-zkvOOWAxXSUGcHHX-wBKUQ2ZgBCCo
+  - /url: https://www.google.com/setprefs?sig=0_0i0dY810LdhiISmemJkItgG2uYI%3D&hl=te&source=homepage&sa=X&ved=0ahUKEwj-8s2vv-iWAxWWjuEIHaeNK7MQ2ZgBCCo
 - link "मराठी":
-  - /url: https://www.google.com/setprefs?sig=0_NxysGFBlHmvc8uU9V74ySIyDkC0%3D&hl=mr&source=homepage&sa=X&ved=0ahUKEwiay-zkvOOWAxXSUGcHHX-wBKUQ2ZgBCCs
+  - /url: https://www.google.com/setprefs?sig=0_0i0dY810LdhiISmemJkItgG2uYI%3D&hl=mr&source=homepage&sa=X&ved=0ahUKEwj-8s2vv-iWAxWWjuEIHaeNK7MQ2ZgBCCs
 - link "தமிழ்":
-  - /url: https://www.google.com/setprefs?sig=0_NxysGFBlHmvc8uU9V74ySIyDkC0%3D&hl=ta&source=homepage&sa=X&ved=0ahUKEwiay-zkvOOWAxXSUGcHHX-wBKUQ2ZgBCCw
+  - /url: https://www.google.com/setprefs?sig=0_0i0dY810LdhiISmemJkItgG2uYI%3D&hl=ta&source=homepage&sa=X&ved=0ahUKEwj-8s2vv-iWAxWWjuEIHaeNK7MQ2ZgBCCw
 - link "ગુજરાતી":
-  - /url: https://www.google.com/setprefs?sig=0_NxysGFBlHmvc8uU9V74ySIyDkC0%3D&hl=gu&source=homepage&sa=X&ved=0ahUKEwiay-zkvOOWAxXSUGcHHX-wBKUQ2ZgBCC0
+  - /url: https://www.google.com/setprefs?sig=0_0i0dY810LdhiISmemJkItgG2uYI%3D&hl=gu&source=homepage&sa=X&ved=0ahUKEwj-8s2vv-iWAxWWjuEIHaeNK7MQ2ZgBCC0
 - link "ಕನ್ನಡ":
-  - /url: https://www.google.com/setprefs?sig=0_NxysGFBlHmvc8uU9V74ySIyDkC0%3D&hl=kn&source=homepage&sa=X&ved=0ahUKEwiay-zkvOOWAxXSUGcHHX-wBKUQ2ZgBCC4
+  - /url: https://www.google.com/setprefs?sig=0_0i0dY810LdhiISmemJkItgG2uYI%3D&hl=kn&source=homepage&sa=X&ved=0ahUKEwj-8s2vv-iWAxWWjuEIHaeNK7MQ2ZgBCC4
 - link "മലയാളം":
-  - /url: https://www.google.com/setprefs?sig=0_NxysGFBlHmvc8uU9V74ySIyDkC0%3D&hl=ml&source=homepage&sa=X&ved=0ahUKEwiay-zkvOOWAxXSUGcHHX-wBKUQ2ZgBCC8
+  - /url: https://www.google.com/setprefs?sig=0_0i0dY810LdhiISmemJkItgG2uYI%3D&hl=ml&source=homepage&sa=X&ved=0ahUKEwj-8s2vv-iWAxWWjuEIHaeNK7MQ2ZgBCC8
 - link "ਪੰਜਾਬੀ":
-  - /url: https://www.google.com/setprefs?sig=0_NxysGFBlHmvc8uU9V74ySIyDkC0%3D&hl=pa&source=homepage&sa=X&ved=0ahUKEwiay-zkvOOWAxXSUGcHHX-wBKUQ2ZgBCDA
+  - /url: https://www.google.com/setprefs?sig=0_0i0dY810LdhiISmemJkItgG2uYI%3D&hl=pa&source=homepage&sa=X&ved=0ahUKEwj-8s2vv-iWAxWWjuEIHaeNK7MQ2ZgBCDA
 - contentinfo:
   - text: India
   - link "Advertising":
@@ -83,33 +85,32 @@ Call log:
 # Test source
 
 ```ts
-  1  | const {test,expect} = require('@playwright/test');
-  2  | 
+  1  | //const {test,expect} = require('@playwright/test');
+  2  | import { test, expect } from '@playwright/test';
   3  | test('login test',async ({page}) =>{
   4  | await 
   5  | page.goto('https://example.com');
   6  | await expect(page).toHaveTitle(/Example/);
   7  | });
-  8  | 
-  9  | // @ts-check
-  10 | //import { test, expect } from '@playwright/test';
-  11 | 
-  12 | test('has title', async ({ page }) => {
-  13 |   await page.goto('https://google.com',{ waitUntil: 'domcontentloaded' });
-  14 | 
-  15 |   // Expect a title "to contain" a substring.
-> 16 |   await expect(page).toHaveTitle(/google/);
+  8  | // @ts-check
+  9  | //import { test, expect } from '@playwright/test';
+  10 | 
+  11 | test('has title', async ({ page }) => {
+  12 |   await page.goto('https://google.com',{ waitUntil: 'domcontentloaded' });
+  13 | 
+  14 |   // Expect a title "to contain" a substring.
+> 15 |   await expect(page).toHaveTitle(/google/);
      |                      ^ Error: expect(page).toHaveTitle(expected) failed
-  17 | });
-  18 | 
-  19 | test('get started link', async ({ page }) => {
-  20 |   await page.goto('https://playwright.dev/',{ waitUntil: 'domcontentloaded' });
-  21 | 
-  22 |   // Click the get started link.
-  23 |   await page.getByRole('link', { name: 'Get started' }).click();
-  24 | 
-  25 |   // Expects page to have a heading with the name of Installation.
-  26 |   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-  27 | });
-  28 | 
+  16 | });
+  17 | 
+  18 | test('get started link', async ({ page }) => {
+  19 |   await page.goto('https://playwright.dev/',{ waitUntil: 'domcontentloaded' });
+  20 | 
+  21 |   // Click the get started link.
+  22 |   await page.getByRole('link', { name: 'Get started' }).click();
+  23 | 
+  24 |   // Expects page to have a heading with the name of Installation.
+  25 |   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  26 | });
+  27 | 
 ```

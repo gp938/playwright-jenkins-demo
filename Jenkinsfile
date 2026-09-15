@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-             //   checkout scm
+                checkout scm
                 git branch:'feature-login',
                 url:'https://github.com/gp938/playwright-jenkins-demo.git'
             }
@@ -55,16 +55,22 @@ pipeline {
         }
             }*/
         }
-}
-    /* post {
-    always {
-        // Keep reports even when tests fail
-        archiveArtifacts(
-            artifacts: 'playwright-report/**',
-            allowEmptyArchive: true
-        )
 
-        archiveArtifacts(
+     post {
+         always {
+        // Keep reports even when tests fail
+        bat '''
+            echo === Workspace ===
+            cd
+            echo === Files ===
+            dir /s /b
+        '''
+            archiveArtifacts artifacts: 'screenshots/**/*.png',
+            allowEmptyArchive: true
+            }
+     }
+}
+    /*    archiveArtifacts(
             artifacts: 'allure-results/**',
             allowEmptyArchive: true
         )
