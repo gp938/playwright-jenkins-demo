@@ -1,0 +1,130 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: login.spec.js >> Take screenshot
+- Location: tests\login.spec.js:3:5
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: expect(page).toHaveTitle(expected) failed
+
+Expected pattern: /Example/
+Received string:  "Google"
+
+Call log:
+  - Expect "toHaveTitle" with timeout 5000ms
+    - locator resolved to <html itemscope="" lang="en-IN" itemtype="http://schema.org/WebPage">…</html>
+    - unexpected value "Google"
+  - Protocol error (Runtime.callFunctionOn): Internal server error, session closed.
+
+```
+
+```yaml
+- navigation:
+  - link "About":
+    - /url: https://about.google/?fg=1&utm_source=google-IN&utm_medium=referral&utm_campaign=hp-header
+  - link "Store":
+    - /url: https://store.google.com/IN?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-IN
+  - link "Gmail":
+    - /url: https://mail.google.com/mail/&ogbl
+  - link "Search for Images":
+    - /url: https://www.google.com/imghp?hl=en&ogbl
+    - text: Images
+  - button "Google apps"
+  - link "Sign in":
+    - /url: https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/&ec=futura_exp_og_so_72776762_e
+- img "Google"
+- search:
+  - button "Add files and tools"
+  - combobox "Search"
+  - button "Search by voice"
+  - button "Search by image"
+  - link "AI Mode"
+  - button "Google Search"
+  - button "I'm Feeling Lucky"
+- text: "Google offered in:"
+- link "हिन्दी":
+  - /url: https://www.google.com/setprefs?sig=0_62q-l131yfAg8NuTiXygaV6zeFE%3D&hl=hi&source=homepage&sa=X&ved=0ahUKEwiD-sy50fCWAxXyleEIHbQBD30Q2ZgBCCg
+- link "বাংলা":
+  - /url: https://www.google.com/setprefs?sig=0_62q-l131yfAg8NuTiXygaV6zeFE%3D&hl=bn&source=homepage&sa=X&ved=0ahUKEwiD-sy50fCWAxXyleEIHbQBD30Q2ZgBCCk
+- link "తెలుగు":
+  - /url: https://www.google.com/setprefs?sig=0_62q-l131yfAg8NuTiXygaV6zeFE%3D&hl=te&source=homepage&sa=X&ved=0ahUKEwiD-sy50fCWAxXyleEIHbQBD30Q2ZgBCCo
+- link "मराठी":
+  - /url: https://www.google.com/setprefs?sig=0_62q-l131yfAg8NuTiXygaV6zeFE%3D&hl=mr&source=homepage&sa=X&ved=0ahUKEwiD-sy50fCWAxXyleEIHbQBD30Q2ZgBCCs
+- link "தமிழ்":
+  - /url: https://www.google.com/setprefs?sig=0_62q-l131yfAg8NuTiXygaV6zeFE%3D&hl=ta&source=homepage&sa=X&ved=0ahUKEwiD-sy50fCWAxXyleEIHbQBD30Q2ZgBCCw
+- link "ગુજરાતી":
+  - /url: https://www.google.com/setprefs?sig=0_62q-l131yfAg8NuTiXygaV6zeFE%3D&hl=gu&source=homepage&sa=X&ved=0ahUKEwiD-sy50fCWAxXyleEIHbQBD30Q2ZgBCC0
+- link "ಕನ್ನಡ":
+  - /url: https://www.google.com/setprefs?sig=0_62q-l131yfAg8NuTiXygaV6zeFE%3D&hl=kn&source=homepage&sa=X&ved=0ahUKEwiD-sy50fCWAxXyleEIHbQBD30Q2ZgBCC4
+- link "മലയാളം":
+  - /url: https://www.google.com/setprefs?sig=0_62q-l131yfAg8NuTiXygaV6zeFE%3D&hl=ml&source=homepage&sa=X&ved=0ahUKEwiD-sy50fCWAxXyleEIHbQBD30Q2ZgBCC8
+- link "ਪੰਜਾਬੀ":
+  - /url: https://www.google.com/setprefs?sig=0_62q-l131yfAg8NuTiXygaV6zeFE%3D&hl=pa&source=homepage&sa=X&ved=0ahUKEwiD-sy50fCWAxXyleEIHbQBD30Q2ZgBCDA
+- contentinfo:
+  - text: India
+  - link "Advertising":
+    - /url: https://www.google.com/intl/en_in/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1
+  - link "Business":
+    - /url: https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1
+  - link "How Search works":
+    - /url: https://google.com/search/howsearchworks/?fg=1
+  - link "Privacy":
+    - /url: https://policies.google.com/privacy?hl=en-IN&fg=1
+  - link "Terms":
+    - /url: https://policies.google.com/terms?hl=en-IN&fg=1
+  - button "Settings"
+```
+
+# Test source
+
+```ts
+  1  | //const {test,expect} = require('@playwright/test');
+  2  | import { test, expect } from '@playwright/test';
+  3  | test('Take screenshot',async({page}) =>{
+  4  |   await
+  5  |   page.goto("https://www.google.com");
+> 6  |   await expect(page).toHaveTitle(/Example/);
+     |                      ^ Error: expect(page).toHaveTitle(expected) failed
+  7  |   await page.screenshot({
+  8  |    // path:'screenshots/google.png',
+  9  |     fullpage:true
+  10 | 
+  11 |   });
+  12 | });
+  13 | test('login test',async ({page}) =>{
+  14 | await 
+  15 | page.goto('https://example.com');
+  16 | await expect(page).toHaveTitle(/Example/);
+  17 | });
+  18 | // @ts-check
+  19 | //import { test, expect } from '@playwright/test';
+  20 | 
+  21 | test('has title', async ({ page }) => {
+  22 |   await page.goto('https://google.com',{ waitUntil: 'domcontentloaded' });
+  23 | 
+  24 |   // Expect a title "to contain" a substring.
+  25 |   await expect(page).toHaveTitle(/Google/);
+  26 | });
+  27 | 
+  28 | test('get started link', async ({ page }) => {
+  29 |   await page.goto('https://playwright.dev/',{ waitUntil: 'domcontentloaded' });
+  30 | 
+  31 |   // Click the get started link.
+  32 |   await page.getByRole('link', { name: 'Get started' }).click();
+  33 | 
+  34 |   // Expects page to have a heading with the name of Installation.
+  35 |   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  36 | });
+  37 | 
+```
