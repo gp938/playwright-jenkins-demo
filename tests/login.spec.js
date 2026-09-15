@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test('Take screenshot',async({page}) =>{
   await
   page.goto("https://www.google.com");
+  await expect(page).toHaveTitle(/Example/);
   await page.screenshot({
     path:'screenshots/google.com',
     fullpage:true
@@ -21,7 +22,7 @@ test('has title', async ({ page }) => {
   await page.goto('https://google.com',{ waitUntil: 'domcontentloaded' });
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/google/);
+  await expect(page).toHaveTitle(/Google/);
 });
 
 test('get started link', async ({ page }) => {
