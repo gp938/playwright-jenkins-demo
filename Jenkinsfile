@@ -55,17 +55,10 @@ pipeline {
         }
             }*/
         }
-
-     post {
-         always {
-        // Keep reports even when tests fail
-        bat '''
-            echo === Workspace ===
-            cd
-            echo === Files ===
-            dir /s /b
-        '''
-            archiveArtifacts artifacts: 'test-results/**/*.png',
+        stage('screenshot-report'){
+            steps{
+     
+            archiveArtifacts artifacts: 'test-results/**/*',
             allowEmptyArchive: true
             }
      }
