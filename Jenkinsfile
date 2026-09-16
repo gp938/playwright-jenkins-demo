@@ -33,6 +33,7 @@ pipeline {
              catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
              bat 'npx playwright test'
         }
+             }
     }
 
         stage('Allure Report') {
