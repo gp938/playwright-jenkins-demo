@@ -30,7 +30,7 @@ pipeline {
         // }
           stage('Run Playwright Tests new') {
              steps {
-            // catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
              bat 'npx playwright test'
         }
     }
