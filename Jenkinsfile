@@ -31,6 +31,9 @@ pipeline {
           stage('Run Playwright Tests new') {
              steps {
              catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+             bat Remove-Item -Recurse -Force .\test-results\   
+             bat Remove-Item -Recurse -Force .\allure-report\ 
+             bat Remove-Item -Recurse -Force .\playwright-report\
              bat 'npx playwright test'
         }
              }
