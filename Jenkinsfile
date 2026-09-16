@@ -30,11 +30,11 @@ pipeline {
         // }
           stage('Run Playwright Tests new') {
              steps {
-             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+            // catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
              bat 'npx playwright test'
         }
     }
-}
+
         stage('Allure Report') {
             steps {
                 allure([
@@ -46,13 +46,13 @@ pipeline {
         }
         stage('screenshot-report') {
             steps {
-                 archiveArtifacts artifacts: 'test-results/**/*, playwright-report/**/*',
+                 archiveArtifacts artifacts: 'test-results/**/*',
                  allowEmptyArchive: true
                   }
         }
           
      }
-}
+
    
- 
+}
 
