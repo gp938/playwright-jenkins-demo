@@ -28,12 +28,20 @@ pipeline {
         //       //  bat 'npx playwright test'
         //     }
         // }
+          stage('Clean Allure') {
+    steps {
+        powershell '''
+            Remove-Item -Recurse -Force .\\allure-report\\ -ErrorAction SilentlyContinue
+            Remove-Item -Recurse -Force .\\test-results\\ -ErrorAction SilentlyContinue
+            Remove-Item -Recurse -Force .\\playwright-report\\ -ErrorAction SilentlyContinue
+        '''
+    }
+}
           stage('Run Playwright Tests new') {
              steps {
+                
              catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-             bat Remove-Item -Recurse -Force .\test-results\   
-             bat Remove-Item -Recurse -Force .\allure-report\ 
-             bat Remove-Item -Recurse -Force .\playwright-report\
+             
              bat 'npx playwright test'
         }
              }
