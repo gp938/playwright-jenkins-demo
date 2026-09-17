@@ -5,7 +5,8 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch:'main',
+                checkout scm;
+                git branch:'new-login',
                 url:'https://github.com/gp938/playwright-jenkins-demo.git'
             }
         }
@@ -21,7 +22,16 @@ pipeline {
                 bat 'npx playwright install --with-deps'
             }
         }
-
+        stage('Clean Reports') {
+    steps {
+        bat """
+            if exist allure-results rmdir /s /q allure-results
+            if exist allure-report rmdir /s /q allure-report
+            if exist playwright-report rmdir /s /q playwright-report
+            if exist test-results rmdir /s /q test-results
+        """
+          }
+       }
         stage('Run Playwright Tests') {
             steps {
                 bat 'npx playwright test'
