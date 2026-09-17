@@ -5,9 +5,9 @@ pipeline {
 
         stage('Checkout') {
             steps {
-              //  checkout scm
-                git branch:'feature-login',
-                url:'https://github.com/gp938/playwright-jenkins-demo.git'
+                checkout scm
+                // git branch:'feature-login',
+                // url:'https://github.com/gp938/playwright-jenkins-demo.git'
             }
         }
 
@@ -28,14 +28,7 @@ pipeline {
         //       //  bat 'npx playwright test'
         //     }
         // }
-          stage('Clean Allure') {
-    steps {
-        powershell '''
-            Remove-Item -Recurse -Force .\\allure-report\\ -ErrorAction SilentlyContinue
-            Remove-Item -Recurse -Force .\\test-results\\ -ErrorAction SilentlyContinue
-            Remove-Item -Recurse -Force .\\playwright-report\\ -ErrorAction SilentlyContinue
-        '''
-    }
+          
 }
           stage('Run Playwright Tests new') {
              steps {
@@ -56,15 +49,15 @@ pipeline {
                 ])
             }
         }
-        stage('screenshot-report') {
-            steps {
-                 archiveArtifacts artifacts: 'test-results/**/*',
-                 allowEmptyArchive: true
-                  }
-        }
+        // stage('screenshot-report') {
+        //     steps {
+        //          archiveArtifacts artifacts: 'test-results/**/*',
+        //          allowEmptyArchive: true
+        //           }
+        // }
           
      }
 
    
-}
+
 
