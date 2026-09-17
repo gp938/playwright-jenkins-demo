@@ -29,7 +29,7 @@ pipeline {
         //     }
         // }
           
-}
+
           stage('Run Playwright Tests new') {
              steps {
                 
@@ -58,6 +58,6 @@ pipeline {
           
      }
 
-   
+   }
 
 
