@@ -54,12 +54,13 @@ pipeline {
             steps{
                 bat 'allure generate allure-results -o allure-report --clean'
         }
-            }*/
+        git    }*/
         }
         post {
     always {
         archiveArtifacts artifacts: 'test-results/**/*.png',
                          allowEmptyArchive: true
+
     }
 }
 }
