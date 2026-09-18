@@ -9,6 +9,15 @@ test('Google has title', async ({ page }) => {
   console.log('TITLE:', await page.title());
 
   await expect(page).toHaveTitle(/Playwright/, { timeout: 50000 });
+});
+  test('click test', async ({ page }) => {
+  await page.goto('https://example.com');
+
+  // Click a button or link
+  await page.getByRole('link', { name: 'More information...' }).click();
+
+  // Verify the new page
+  await expect(page).toHaveURL(/iana\.org/);
  
 
 });
