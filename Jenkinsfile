@@ -42,6 +42,11 @@ pipeline {
         }
         stage('Allure Report') {
             steps {
+                when {
+        expression {
+            currentBuild.currentResult in ['SUCCESS', 'UNSTABLE', 'FAILURE']
+        }
+    }
                 allure([
                     includeProperties: false,
                     jdk: '',
