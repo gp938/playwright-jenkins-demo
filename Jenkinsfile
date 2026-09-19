@@ -39,8 +39,6 @@ pipeline {
         }
         stage('Allure Report') {
             steps {
-                
-    }
                 allure([
                     includeProperties: false,
                     jdk: '',
@@ -50,7 +48,7 @@ pipeline {
         }
        
         }
-        
+}      
 
 
     
