@@ -33,17 +33,13 @@ pipeline {
        }
         stage('Run Playwright Tests') {
             steps {
-                catchError(
-            buildResult: 'SUCCESS', stageResult: 'FAILURE'  )
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'  )
                 bat 'npx playwright test'
             }
         }
         stage('Allure Report') {
             steps {
-                when {
-        expression {
-            currentBuild.currentResult in ['SUCCESS', 'UNSTABLE', 'FAILURE']
-        }
+                
     }
                 allure([
                     includeProperties: false,
@@ -54,15 +50,9 @@ pipeline {
         }
        
         }
-        post {
-    always {
-        archiveArtifacts artifacts: 'test-results/**/*.png',
-        allowEmptyArchive: true
+        
 
-    }
-}
 
-}
     
 
  
