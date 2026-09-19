@@ -32,7 +32,7 @@ export default defineConfig({
   reporter: [
             ['list'],
             ['allure-playwright',{ 
-              resultsDir:'allure-results'}]
+              resultsDir:'Allure-results'}]
             ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
