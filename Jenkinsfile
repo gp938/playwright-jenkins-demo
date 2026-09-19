@@ -50,9 +50,12 @@ pipeline {
            } 
            post {
         always {
-              bat 'allure generate allure-results --clean -o allure-report'
+            allure([
+                includeProperties: false,
+                results: [[path: 'allure-results']]
+            ])
         }
-}      
+    }
     }
 
 
