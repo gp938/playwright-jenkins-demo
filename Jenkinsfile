@@ -33,11 +33,12 @@ pipeline {
        }
         stage('Run Playwright Tests') {
             steps {
-               // catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'  )
+               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'  ){
                 bat 'npx playwright test'
             }
+            }
         }
-        stage('Allure Report') {
+        /* stage('Allure Report') {
             steps {
                 allure([
                     includeProperties: false,
@@ -45,10 +46,14 @@ pipeline {
                     results: [[path: 'allure-results']]
                 ])
             }
-        }
-       
+        } */
+           } 
+           post {
+        always {
+              bat 'allure generate allure-results --clean -o allure-report'
         }
 }      
+    }
 
 
     
