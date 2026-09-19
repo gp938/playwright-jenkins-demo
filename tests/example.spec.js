@@ -10,6 +10,7 @@ import { test, expect } from '@playwright/test';
 
   await expect(page).toHaveTitle(/Playwright/, { timeout: 50000 });
 }); */
+ 
   test('Example has title', async ({ page }) => {
   await page.goto('https://example.com', {
     waitUntil: 'domcontentloaded',
@@ -18,7 +19,7 @@ import { test, expect } from '@playwright/test';
   console.log('URL:', page.url());
   console.log('TITLE:', await page.title());
 
-  await expect(page).toHaveTitle(/xampleeeee/, { timeout: 50000 });
+  await expect(page).toHaveTitle(/Example/, { timeout: 50000 });
 });
   test('click test', async ({ page }) => {
   await page.goto('https://example.com');
