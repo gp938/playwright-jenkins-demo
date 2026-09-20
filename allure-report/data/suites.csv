@@ -1,2 +1,7 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","56285","Google has title","chromium","2026-09-19","failed","2026-09-19","","example.spec.js","",""
+"","22553","click test","chromium","2026-09-20","passed","2026-09-20","","example.spec.js","",""
+"","36271","get started link","chromium","2026-09-20","passed","2026-09-20","","login.spec.js","",""
+"","13476","Take screenshot","chromium","2026-09-20","passed","2026-09-20","","login.spec.js","",""
+"","3704","login test","chromium","2026-09-20","passed","2026-09-20","","login.spec.js","",""
+"","64965","Example has title","chromium","2026-09-20","passed","2026-09-20","","example.spec.js","",""
+"","9689","has title","chromium","2026-09-20","passed","2026-09-20","","login.spec.js","",""
