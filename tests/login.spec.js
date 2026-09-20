@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('Take screenshot',async({page}) =>{
   await
   page.goto("https://www.google.com");
-  await expect(page).toHaveTitle(/Example/);
+  await expect(page).toHaveTitle(/Google/);
   await page.screenshot({
    // path:'screenshots/google.png',
     fullpage:true
