@@ -37,6 +37,12 @@ pipeline {
                 bat 'npx playwright test'
             }
             }
+            stage('Run Playwright Test jenkins') {
+            steps {
+               
+                bat 'docker run --rm playwright test'
+            }
+            }
         }
         /* stage('Allure Report') {
             steps {
