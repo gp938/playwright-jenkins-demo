@@ -31,8 +31,7 @@ pipeline {
         """
           }
        }
-        stage('Run Playwright Tests') {
-            steps {
+        stage('Run Playwright Tests') { 
                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'  ){
                 bat 'npx playwright test'
             }
@@ -40,7 +39,7 @@ pipeline {
             stage('Run Playwright Test jenkins') {
             steps {
                
-                bat 'docker run --rm playwright test'
+                bat 'docker run --rm playwright-jenkins:v2 test'
             }
             }
         }
@@ -62,7 +61,7 @@ pipeline {
             ])
         }
     }
-    }
+    
 
 
     
