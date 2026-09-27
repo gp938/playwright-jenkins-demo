@@ -1,16 +1,9 @@
-FROM mcr.microsoft.com/playwright:v1.63.0-noble
+FROM jenkins/jenkins:lts
 
+USER root
 
-WORKDIR /app
+RUN apt-get update \
+    && apt-get install -y docker.io \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY package*.json ./
-
-RUN npm ci
-
-RUN npx playwright install --with-deps
-
-COPY . .
-
-CMD ["npx", "playwright", "test"]
-
-
+USER jenkins
