@@ -1,6 +1,10 @@
 pipeline {
-    agent any
-
+   agent {
+    docker {
+        image 'mcr.microsoft.com/playwright:v1.63.0-noble'
+        args '--ipc=host'
+    }
+}
     stages {
 
         stage('Checkout') {
@@ -43,7 +47,7 @@ pipeline {
                
                 bat 'docker run --rm playwright-jenkins:v2 test'
             }
-            }
+
 
         }
         /* stage('Allure Report') {
@@ -64,6 +68,7 @@ pipeline {
             ])
         }
     }
+}
     
 
 
