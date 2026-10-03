@@ -1,78 +1,74 @@
 pipeline {
-   agent {
-    docker {
-        image 'mcr.microsoft.com/playwright:v1.63.0-noble'
-        args '--ipc=host'
+    agent any
+
+    environment {
+        DOCKER_NETWORK = 'jenkins-net'
+        IMAGE_NAME = 'playwright-tests'
+        IMAGE_TAG = "${BUILD_NUMBER}"
     }
-}
+
     stages {
 
         stage('Checkout') {
             steps {
-                checkout scm;
-                //git branch:'new-login',
-                //url:'https://github.com/gp938/playwright-jenkins-demo.git'
+                checkout scm
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Docker Check') {
             steps {
-                bat 'npm ci'
+                bat 'docker --version'
+                bat 'docker info'
             }
         }
 
-        stage('Install Playwright Browsers') {
+        stage('Create Network') {
             steps {
-                bat 'npx playwright install --with-deps'
+                bat '''
+                    docker network inspect %DOCKER_NETWORK% >nul 2>&1
+                    IF ERRORLEVEL 1 (
+                        docker network create %DOCKER_NETWORK%
+                    )
+                '''
             }
         }
-        stage('Clean Reports') {
-    steps {
-        bat """
-            if exist allure-results rmdir /s /q allure-results
-            if exist allure-report rmdir /s /q allure-report
-            if exist test-results rmdir /s /q test-results
-        """
-          }
-       }
-        stage('Run Playwright Tests') { 
-            steps{
-               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'  ){
-                bat 'npx playwright test'
-            }
-            }
-        }
-            stage('Run Playwright Test jenkins') {
-            steps {
-               
-                bat 'docker run --rm playwright-jenkins:v2 test'
-            }
 
-
-        }
-        /* stage('Allure Report') {
+        stage('Build Playwright Image') {
             steps {
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    results: [[path: 'allure-results']]
-                ])
+                bat '''
+                    docker build -t %IMAGE_NAME%:%IMAGE_TAG% .
+                '''
             }
-        } */
-           } 
-           post {
+        }
+
+        stage('Run Playwright Tests') {
+            steps {
+                bat '''
+                    docker run --rm ^
+                        --network %DOCKER_NETWORK% ^
+                        %IMAGE_NAME%:%IMAGE_TAG%
+                '''
+            }
+        }
+    }
+
+    post {
         always {
-            allure([
-                includeProperties: false,
-                results: [[path: 'allure-results']]
-            ])
+            echo 'Playwright execution completed.'
+        }
+
+        success {
+            echo 'Playwright tests passed.'
+        }
+
+        failure {
+            echo 'Playwright tests failed.'
+        }
+
+        cleanup {
+            bat '''
+                docker image rm %IMAGE_NAME%:%IMAGE_TAG% || exit 0
+            '''
         }
     }
 }
-    
-
-
-    
-
- 
-
